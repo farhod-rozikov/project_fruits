@@ -8,4 +8,21 @@ def get_cheapest_fruit(data:str)->str:
         name of the cheapest fruit
     """
     # your code here
-    pass
+    c = 0.0
+    prices = []
+    names = []
+    rows = data.split('\n')[1:]
+    for row in rows:
+        names.append(row.split(',')[0])
+        prices.append(float(row.split(',')[1]))
+        
+    
+    for f in prices:
+        if c < f:
+            c = f
+    
+    return names[prices.index(c)]
+
+f = open('fruits.csv', encoding='UTF-8')
+d_file = f.read()
+print(get_cheapest_fruit(d_file))
