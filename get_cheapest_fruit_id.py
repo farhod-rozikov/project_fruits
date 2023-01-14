@@ -9,17 +9,16 @@ def get_cheapest_fruit_id(data:str)->id:
     returns:
         name of the cheapest fruit
     """
-    # your code here
-    c = 0.0
+    # your code her
     lst = []
     
     rows = data.split('\n')[1:]
     
     for row in rows:
         lst.append(float(row.split(',')[1]))
-    
+    c = lst[0]
     for f in lst:
-        if c < f:
+        if c > f:
             c = f
     
     return lst.index(c)
