@@ -8,7 +8,7 @@ def get_cheapest_fruit(data:str)->str:
         name of the cheapest fruit
     """
     # your code here
-    c = 0.0
+
     prices = []
     names = []
     rows = data.split('\n')[1:]
@@ -16,9 +16,9 @@ def get_cheapest_fruit(data:str)->str:
         names.append(row.split(',')[0])
         prices.append(float(row.split(',')[1]))
         
-    
+    c = prices[0]
     for f in prices:
-        if c < f:
+        if c > f:
             c = f
     
     return names[prices.index(c)]
